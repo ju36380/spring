@@ -1,0 +1,4 @@
+@CHARSET "UTF-8";
+	.title {background : gray; color : white;}
+	.row:hover {background : gray; color : white;}
+	#pagination {text-align : center;}

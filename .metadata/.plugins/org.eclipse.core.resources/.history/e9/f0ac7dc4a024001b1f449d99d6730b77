@@ -1,0 +1,13 @@
+package com.example.service;
+
+import com.example.domain.BoardVO;
+
+public class BoardServiceImpl implements BoardService{
+
+	@Override
+	public BoardVO read(int bno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

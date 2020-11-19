@@ -1,0 +1,57 @@
+package com.example.controller;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.example.domain.BusVO;
+import com.example.domain.SeatVO;
+import com.example.mapper_oracle.BusMapper;
+
+@RunWith(SpringJUnit4ClassRunner.class) // ���� SpringJUnit4ClassRunner.class
+										// import�Ѵ�.
+@ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
+
+public class BusTest {
+	@Autowired
+	private BusMapper mapper;
+
+	@Test
+	public void insert() {
+		SeatVO vo = new SeatVO();
+		String code = "01인천0001";
+		String tier = "1";
+		int max = seatCheck(tier);
+		
+		/*
+		for (int j = 1; j <= max; j++) {
+			vo.setBus_code(code);
+			vo.setSeat_num(j);
+			vo.setStatus("O");
+			System.out.println(vo.toString());
+			mapper.insert(vo);
+		}*/
+		
+		vo.setBus_code("01인천0001");
+		vo.setSeat_num(1);
+		vo.setStatus("O");
+		
+		mapper.insert(vo);
+	}
+
+	public int seatCheck(String tier) {
+		switch (tier) {
+		case "1":
+			return 21;
+		case "2":
+			return 28;
+		case "3":
+			return 45;
+		}
+		return 0;
+	}
+}
